@@ -78,7 +78,7 @@ This demo can be run in a few different ways:
 - Visual Studio 
 -
 
-### Instructions for Docker
+### Instructions for Docker (should work on Linux or Windows)
 
 1. Clone this repository
 2. Place an extracted copy of the Agent's files in the `newrelic` directory.
