@@ -81,9 +81,10 @@ This demo can be run in a few different ways:
 ### Instructions for Docker (should work on Linux or Windows)
 
 1. Clone this repository
-2. Place an extracted copy of the Agent's files in the `newrelic` directory.
-3. From `AspNetCoreMvc` directory the Run `docker build -t clm-aspnetcoremvc:latest .\`
-4. After the build run `docker run -d --env NEW_RELIC_LICENSE_KEY=<YOUR_LICENSE_KEY> --env NEW_RELIC_APP_NAME=<YOUR_APP_NAME> -p <PORT_YOU_WANT>:80 clm-aspnetcoremvc:latest`
+2. Place an extracted copy of the `.NET Core Linux version` of Agent's files in the `newrelic` directory.
+3. From `CodeLevelMetricsDemo` directory the Run `docker build -f AspNetCoreMvc\Dockerfile -t clm-aspnetcoremvc:latest .\`
+4a. If running in PROD: After the build run `docker run -d --env NEW_RELIC_LICENSE_KEY=<YOUR_LICENSE_KEY> --env NEW_RELIC_APP_NAME=<YOUR_APP_NAME> -p <PORT_YOU_WANT>:80 clm-aspnetcoremvc:latest`
+4b. If running in STAGING: After the build run `docker run -d --env NEW_RELIC_LICENSE_KEY=<YOUR_LICENSE_KEY> --env NEW_RELIC_APP_NAME=<YOUR_APP_NAME> --env NEW_RELIC_HOST=staging-collector.newrelic.com -p <PORT_YOU_WANT>:80 clm-aspnetcoremvc:latest`
 5. You can exercise the app by going to `https:/localhost:<PORT_YOU_WANT>` and browsing around the UI.
 
 ### Instructions for Visual Studio (Windows)
