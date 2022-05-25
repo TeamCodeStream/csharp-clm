@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
 
 namespace AspNetCoreMvc.Controllers
 {
@@ -14,6 +15,7 @@ namespace AspNetCoreMvc.Controllers
 			_logger = logger;
 		}
 
+		[MethodImpl(MethodImplOptions.NoInlining)]
 		public IActionResult Show()
 		{
 			var helpers = new Helpers();
@@ -22,6 +24,7 @@ namespace AspNetCoreMvc.Controllers
 			return View();
 		}
 
+		[MethodImpl(MethodImplOptions.NoInlining)]
 		public IActionResult Create()
 		{
 			var helpers = new Helpers();
@@ -30,6 +33,7 @@ namespace AspNetCoreMvc.Controllers
 			return View();
 		}
 
+		[MethodImpl(MethodImplOptions.NoInlining)]
 		public IActionResult Destroy()
 		{
 			var helpers = new Helpers();

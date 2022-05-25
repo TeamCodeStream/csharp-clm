@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
 namespace AspNetCoreMvc
@@ -9,6 +10,7 @@ namespace AspNetCoreMvc
 	public class Helpers
 	{
 		[Trace]
+		[MethodImpl(MethodImplOptions.NoInlining)]
 		public static string CustomStaticMethodOne(string data)
 		{
 			var dataFromStaticMethodTwo = CustomStaticMethodTwo();
@@ -16,12 +18,14 @@ namespace AspNetCoreMvc
 		}
 
 		[Trace]
+		[MethodImpl(MethodImplOptions.NoInlining)]
 		private static string CustomStaticMethodTwo()
 		{
 			return DateTime.Now.ToLongTimeString();
 		}
 
 		[Trace]
+		[MethodImpl(MethodImplOptions.NoInlining)]
 		public string CustomMethodOne(string data)
 		{
 			var dataFromMethodTwo = CustomMethodTwo();
@@ -29,6 +33,7 @@ namespace AspNetCoreMvc
 		}
 
 		[Trace]
+		[MethodImpl(MethodImplOptions.NoInlining)]
 		private string CustomMethodTwo()
 		{
 			return DateTime.Now.ToShortTimeString();
