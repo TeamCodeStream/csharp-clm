@@ -1,0 +1,19 @@
+version: '3.9'
+
+services: 
+  app:
+    image: clm-aspnetcoremvc:latest
+    build:
+      context: .
+      dockerfile: AspNetCoreMvc/Dockerfile
+    environment:
+      # required
+      NEW_RELIC_LICENSE_KEY: $NEW_RELIC_LICENSE_KEY
+      # optional
+      NEW_RELIC_HOST: ${NEW_RELIC_HOST:-}
+    ports:
+      - 127.0.0.1:8888:80
+    stdin_open: true
+    tty: true
+    volumes:
+      - "./logs:/usr/local/newrelic-netcore20-agent/logs"

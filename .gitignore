@@ -37,3 +37,4 @@ newrelic/
 !newrelic/placeholder.txt
 # Visual Studio 2015
 .vs/
+logs/

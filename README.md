@@ -7,7 +7,7 @@ There is a .NET Core 3.1 ASP.NET Core MVC based web application contained in the
 directory. This application is designed to create web transactions with custom instrumented segments.
 
 By running the demo, the application will be launched and
-daemonized and a `tester` shell script will perform [curl](https://curl.se/)
+daemonized and a `tester.sh` shell script will perform [curl](https://curl.se/)
 commands that generate web traffic to exercise all traced Ruby methods.
 
 ## Important Source Files
@@ -74,7 +74,7 @@ This demo can be run in a few different ways:
 ### Software Prerequisites
 
 - [Docker](https://www.docker.com/get-started/)
-- [.NET Core 3.1 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/3.1)
+- [.NET Core 6.0 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
 - Visual Studio 
 -
 
@@ -82,10 +82,10 @@ This demo can be run in a few different ways:
 
 1. Clone this repository
 2. Place an extracted copy of the `.NET Core Linux version` of Agent's files in the `newrelic` directory.
-3. From `CodeLevelMetricsDemo` directory the Run `docker build -f AspNetCoreMvc\Dockerfile -t clm-aspnetcoremvc:latest .\`
-4a. If running in PROD: After the build run `docker run -d --env NEW_RELIC_LICENSE_KEY=<YOUR_LICENSE_KEY> --env NEW_RELIC_APP_NAME=<YOUR_APP_NAME> -p <PORT_YOU_WANT>:80 clm-aspnetcoremvc:latest`
-4b. If running in STAGING: After the build run `docker run -d --env NEW_RELIC_LICENSE_KEY=<YOUR_LICENSE_KEY> --env NEW_RELIC_APP_NAME=<YOUR_APP_NAME> --env NEW_RELIC_HOST=staging-collector.newrelic.com -p <PORT_YOU_WANT>:80 clm-aspnetcoremvc:latest`
-5. You can exercise the app by going to `https:/localhost:<PORT_YOU_WANT>` and browsing around the UI.
+3a. If running in PROD: `export NEW_RELIC_LICENSE_KEY=<YOUR_LICENSE_KEY>; export NEW_RELIC_HOST=collector.newrelic.com`
+3b. If running in STAGING: After the build run `export NEW_RELIC_LICENSE_KEY=<YOUR_LICENSE_KEY>; export NEW_RELIC_HOST=staging-collector.newrelic.com`
+4. From `CodeLevelMetricsDemo` directory the Run `docker-compose up -d --build`
+5. You can exercise the app by going to `https:/localhost:8888` and browsing around the UI.
 
 ### Instructions for Visual Studio (Windows)
 
