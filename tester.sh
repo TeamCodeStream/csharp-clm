@@ -11,10 +11,10 @@ while true; do
     curl -s -o /dev/null http://localhost:80/
 
     # agents/create
-    curl -s -o /dev/null ttp://localhost:80/Agents/Create
+    curl -s -o /dev/null http://localhost:80/Agents/Create
 
     # agents/destroy
-    curl -s -o /dev/null ttp://localhost:80/Agents/Destroy
+    curl -s -o /dev/null http://localhost:80/Agents/Destroy
     echo "Completed a full set of operations." >> $logfile
 
     # go too fast and the agent starts sampling
