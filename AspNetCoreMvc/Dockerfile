@@ -36,6 +36,6 @@ CORECLR_PROFILER={36032161-FFC0-4B61-B559-F6C5D41BAE5A} \
 CORECLR_NEWRELIC_HOME=/usr/local/newrelic-dotnet-agent \
 CORECLR_PROFILER_PATH=/usr/local/newrelic-dotnet-agent/libNewRelicProfiler.so \
 NEW_RELIC_CODE_LEVEL_METRICS_ENABLED=true \
-NEW_RELIC_APP_NAME="clm-demo-csharp"
+NEW_RELIC_APP_NAME="CSharp Agent CLM Demo"
 
 ENTRYPOINT ["/entrypoint.sh"]
