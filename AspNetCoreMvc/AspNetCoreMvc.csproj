@@ -10,4 +10,11 @@
     <PackageReference Include="NewRelic.Agent.Api" Version="9.8.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="Views\Agents\SlowResponse.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>

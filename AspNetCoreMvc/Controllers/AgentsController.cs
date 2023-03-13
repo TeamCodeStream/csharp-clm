@@ -1,8 +1,10 @@
-﻿using AspNetCoreMvc.Models;
+﻿using System;
+using AspNetCoreMvc.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
+using System.Threading;
 
 namespace AspNetCoreMvc.Controllers
 {
@@ -33,7 +35,22 @@ namespace AspNetCoreMvc.Controllers
 			return View();
 		}
 
-		[MethodImpl(MethodImplOptions.NoInlining)]
+        [MethodImpl(MethodImplOptions.NoInlining)]
+        public IActionResult SlowResponse()
+        {
+            var helpers = new Helpers();
+
+            var randomWait = new Random();
+            var waitTime = randomWait.Next(150, 250);
+            Thread.Sleep(waitTime);
+
+            ViewData["InstanceMethod"] = helpers.CustomMethodOne("Waiting...");
+            ViewData["StaticMethod"] = Helpers.CustomStaticMethodOne($"We waited an extra {waitTime} milliseconds on this one!");
+
+            return View();
+        }
+
+        [MethodImpl(MethodImplOptions.NoInlining)]
 		public IActionResult Destroy()
 		{
 			var helpers = new Helpers();

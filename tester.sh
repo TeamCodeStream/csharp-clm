@@ -15,6 +15,10 @@ while true; do
 
     # agents/destroy
     curl -s -o /dev/null http://localhost:80/Agents/Destroy
+
+    # agents/slowresponse
+    curl -s -o /dev/null http://localhost:80/Agents/SlowResponse
+
     echo "Completed a full set of operations." >> $logfile
 
     # go too fast and the agent starts sampling
