@@ -1,0 +1,27 @@
+slack_channel: codestream-bots
+deploy_mechanism: kubernetes
+docker_image: cf-registry.nr-ops.net/codestream/clm-demo-csharp
+container_ports:
+  - 8888
+base_environment: {}
+environments:
+  - name: staging
+    vault_environment: staging
+    allow_instances_to_be_destroyed: true
+    instances: 1
+    memory_mb: 1024
+    secret_env_vars:
+      - name: NEW_RELIC_LICENSE_KEY
+    disable_dns_management: false
+    cell_selector:
+      matchlabels:
+        interlinked.newrelic.com/environment: us-staging
+        workload.interlinked.newrelic.com/telemetry-ingest: ""
+      matchexpressions: []
+    general_purpose: null
+    _environments: null
+apm_verification:
+  rollback_on_failure: true
+disable_default_environments: true
+docker_build: 
+  dockerfile: ./AspNetCoreMvc/Dockerfile
