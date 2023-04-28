@@ -21,9 +21,18 @@ namespace AspNetCoreMvc.Controllers
 		public IActionResult Show()
 		{
 			var helpers = new Helpers();
+			Thread.Sleep(200);
 			ViewData["InstanceMethod"] = helpers.CustomMethodOne("Wake me. When you need me.");
 			ViewData["StaticMethod"] = Helpers.CustomStaticMethodOne("It's dangerous to go alone, take this!");
+			ViewData["JsonStuff"] = helpers.JsonStuff();
 			return View();
+		}
+		
+		[MethodImpl(MethodImplOptions.NoInlining)]
+		public IActionResult DoError()
+		{
+			Thread.Sleep(200);
+			throw new Exception("Agitated");
 		}
 
 		[MethodImpl(MethodImplOptions.NoInlining)]
@@ -49,9 +58,19 @@ namespace AspNetCoreMvc.Controllers
 
             return View();
         }
+        
+		[MethodImpl(MethodImplOptions.NoInlining)]
+		public IActionResult RealisticError()
+		{
+			var helpers = new Helpers();
+			ViewData["Account"] = helpers.JsonStuffTwo();
+			return View();
+		}
+		
+		[MethodImpl(MethodImplOptions.NoInlining)]
+		public IActionResult Destroy() => DestroyImpl();
 
-        [MethodImpl(MethodImplOptions.NoInlining)]
-		public IActionResult Destroy()
+		private IActionResult DestroyImpl()
 		{
 			var helpers = new Helpers();
 			ViewData["InstanceMethod"] = helpers.CustomMethodOne("It's time to kick ass and chew bubblegum, and I'm all out of gum.");
