@@ -81,11 +81,11 @@ This demo can be run in a few different ways:
 ### Instructions for Docker (should work on Linux or Windows)
 
 1. Clone this repository
-2. Place an extracted copy of the `.NET Core Linux version` of Agent's files in the `newrelic` directory.
-3a. If running in PROD: `export NEW_RELIC_LICENSE_KEY=<YOUR_LICENSE_KEY>; export NEW_RELIC_HOST=collector.newrelic.com`
-3b. If running in STAGING: After the build run `export NEW_RELIC_LICENSE_KEY=<YOUR_LICENSE_KEY>; export NEW_RELIC_HOST=staging-collector.newrelic.com`
-4. From `CodeLevelMetricsDemo` directory the Run `docker-compose up -d --build`
-5. You can exercise the app by going to `https:/localhost:8888` and browsing around the UI.
+2. Set license key
+   1. If running in PROD: `export NEW_RELIC_LICENSE_KEY=<YOUR_LICENSE_KEY>; export NEW_RELIC_HOST=collector.newrelic.com`
+   2. If running in STAGING: After the build run `export NEW_RELIC_LICENSE_KEY=<YOUR_LICENSE_KEY>; export NEW_RELIC_HOST=staging-collector.newrelic.com`
+3. From `CodeLevelMetricsDemo` directory the Run `docker-compose up -d --build`
+4. You can exercise the app by going to `https:/localhost:8888` and browsing around the UI.
 
 ### Instructions for Visual Studio (Windows)
 
